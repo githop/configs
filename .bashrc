@@ -1,4 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -44,12 +45,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -109,5 +110,13 @@ fi
 # crosh colors
 export TERM=screen-256color
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+source /home/githop/gcutil/google-cloud-sdk/path.bash.inc
+
+# The next line enables bash completion for gcloud.
+source /home/githop/gcutil/google-cloud-sdk/completion.bash.inc
